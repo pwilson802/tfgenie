@@ -1,14 +1,14 @@
 # Terraform Genie
 
-tfgenie is a curent work in progress.  It will help save time writting terraform code in use cases when the code may takea  while to get correct and you have a refernce system. 
+tfgenie is a work in progress. It will help save time writing Terraform code in cases where the code may take a while to get correct, and you have a reference system. 
 
-Creating Grafana alerts and dashboards can take some playing around in the GUI, it can be nice to create them like this first the use Terraform Genie to pull them into a terraform file. 
+Creating Grafana alerts and dashboards can take some playing around in the GUI. It can be nice to create them like this first and then use Terraform Genie to pull them into a Terraform file. 
 
-IAM policies following least privilages principal can take some time to get correct. Terraform Genie can connect to IAM access analyzer and create terraform code for a role from a recent role or users usage.
+IAM policies following the least privileges principle can take some time to get correct. Terraform Genie can connect to IAM access analyzer and create Terraform code for a role based on a recent role or user's usage.
 
 ## Getting Started
 
-tfgenie if written in Go, this will need to be installed first, you can clone the project and build it yourself or install direct from github.
+As tfgenie is written in Go, it will need to be installed first. You can clone the project and build it yourself or install it directly from GitHub.
 
 
 ### Installing
@@ -23,7 +23,7 @@ go get https://github.com/pwilson802/tfgenie
 
 Example of getting a grafna alert:
 ```
-export GRAFANA_API_KEY=XXXXXXX
+export GRAFANA_API_KEY=XXXXXX
 tfgenie grafana --hostname grafana-server.dev --resource alert --alertId aba370f4-ba77-4de6-93f1-4a32158cb2eb
 ```
 

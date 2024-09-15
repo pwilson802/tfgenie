@@ -33,6 +33,7 @@ var grafanaCmd = &cobra.Command{
 			return
 		}
 		if resource == "alert" {
+			fmt.Println("getting alert...")
 			if hostname == "" {
 				log.Fatal("Hostname is required")
 			}
