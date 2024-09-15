@@ -14,13 +14,15 @@ import (
 // grafanaCmd represents the grafana command
 var grafanaCmd = &cobra.Command{
 	Use:   "grafana",
-	Short: "A brief description of your command",
-	Long: `A longer description that spans multiple lines and likely contains examples
-and usage of using your command. For example:
+	Short: "Get Configuration from Grafana",
+	Long: `Can get configuration from Grafana including alerts and dashboards
 
-Cobra is a CLI library for Go that empowers applications.
-This application is a tool to generate the needed files
-to quickly create a Cobra application.`,
+	Ensure the API key variable is set:
+		export GRAFANA_API_KEY=XXXXXXX
+	
+	Example of reading an alert:
+		tfgenie grafana --hostname grafana-server.dev --resource alert --alertId aba370f4-ba77-4de6-93f1-4a32158cb2eb
+`,
 	Run: func(cmd *cobra.Command, args []string) {
 		fmt.Println("grafana called")
 		hostname, _ := cmd.Flags().GetString("hostname")
@@ -58,16 +60,6 @@ to quickly create a Cobra application.`,
 func init() {
 	rootCmd.AddCommand(grafanaCmd)
 	grafanaCmd.PersistentFlags().String("hostname", "", "The grafana hostname")
-	grafanaCmd.PersistentFlags().String("resource", "", "The grafana resource to read - Alert, Dashboard")
+	grafanaCmd.PersistentFlags().String("resource", "", "The grafana resource to read - alert, dashboard")
 	grafanaCmd.PersistentFlags().String("alertId", "", "The uid of the alert being read")
-
-	// Here you will define your flags and configuration settings.
-
-	// Cobra supports Persistent Flags which will work for this command
-	// and all subcommands, e.g.:
-	// grafanaCmd.PersistentFlags().String("foo", "", "A help for foo")
-
-	// Cobra supports local flags which will only run when this command
-	// is called directly, e.g.:
-	// grafanaCmd.Flags().BoolP("toggle", "t", false, "Help message for toggle")
 }
